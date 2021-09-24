@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286d0ef030f54fb4f9ef60aa569503b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 3
 --- !u!65 &2146301594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ Rigidbody:
   m_GameObject: {fileID: 2146301592}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.5
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
