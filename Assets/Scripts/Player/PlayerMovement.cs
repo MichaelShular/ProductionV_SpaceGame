@@ -61,13 +61,27 @@ public class PlayerMovement : MonoBehaviour
         //    dir += new Vector3(0, -5, 0);
         //}
 
-        dir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        dir = new Vector3(Input.GetAxisRaw("Turning"), Input.GetAxisRaw("Depth"), Input.GetAxisRaw("Vertical"));
+        
+        
+
     }
     void FixedUpdate()
     {
         if (playerRigidbody.velocity.magnitude <= 20)
         {
-            playerRigidbody.AddForce((dir * speed) / 2, ForceMode.VelocityChange);
+            //acceleration += Input.GetAxisRaw("Turning");
+            //float a = Vector3.Angle(new Vector3( 0, , 0), dir);
+
+            playerRigidbody.angularVelocity  =  new Vector3(0, Input.GetAxisRaw("Horizontal"), 0);
+            float a = Vector3.Angle(dir, playerRigidbody.angularVelocity);
+            dir = Quaternion.AngleAxis(transform.rotation.eulerAngles.y, Vector3.up) * dir;
+
+            //Debug.Log(acceleration);
+            
+            //Vector3 turn = 
+            playerRigidbody.AddForce( dir * speed / 2, ForceMode.VelocityChange);
+            
         }
     }
 }
