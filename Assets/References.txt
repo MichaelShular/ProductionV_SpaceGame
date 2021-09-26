@@ -1,2 +1,8 @@
 speed over time
 https://answers.unity.com/questions/1170967/how-to-get-speed-to-very-gradually-pick-up-over-ti.html
+
+rotating a vector(used to change direction of ship)
+https://answers.unity.com/questions/46770/rotate-a-vector3-direction.html
+
+find an angle (used to change direction of ship)
+https://forum.unity.com/threads/get-angle-and-set-angle-of-a-game-object.57155/
