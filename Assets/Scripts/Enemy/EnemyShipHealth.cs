@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyShipHealth : MonoBehaviour
 {
     [SerializeField] private float health;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class EnemyShipHealth : MonoBehaviour
     {
         if(health <= 0)
         {
+            GameObject.Find("EventSystem").GetComponent<ScoreManager>().addScore(100);
             Destroy(this.gameObject);
         }
       

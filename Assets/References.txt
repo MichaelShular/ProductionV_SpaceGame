@@ -6,3 +6,6 @@ https://answers.unity.com/questions/46770/rotate-a-vector3-direction.html
 
 find an angle (used to change direction of ship)
 https://forum.unity.com/threads/get-angle-and-set-angle-of-a-game-object.57155/
+
+enemies collide with entire layer of player bullets
+https://answers.unity.com/questions/261556/how-to-tell-if-my-character-hit-a-collider-of-a-ce.html
