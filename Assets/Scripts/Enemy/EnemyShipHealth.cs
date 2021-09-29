@@ -2,30 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletLifeTime : MonoBehaviour
+public class EnemyShipHealth : MonoBehaviour
 {
-    [SerializeField] float lifeTimeAmount;
-    private float timeLeft;
+    [SerializeField] private float health;
     // Start is called before the first frame update
     void Start()
     {
-        lifeTimeAmount = 5;
-        timeLeft = lifeTimeAmount + Time.time;
+        health = 30;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timeLeft < Time.time)
+        if(health <= 0)
         {
             Destroy(this.gameObject);
         }
-
+      
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
+        if (collision.collider.gameObject.layer == 7)
+        {
+            health -= 10;
+            Debug.Log(health);
+        }
     }
 
 }
