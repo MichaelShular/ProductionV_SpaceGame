@@ -18,7 +18,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         playerRigidbody = this.GetComponent<Rigidbody>();
         speed = 0.1f;
-        turnSpeed = 0.1f;
+        turnSpeed = 0.6f;
         changeSpeedAmount = 1f;
         sideDashForceAmount = 45;
     }
