@@ -45,7 +45,7 @@ public class PlayerMovementScript : MonoBehaviour
                 playerRigidbody.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * sideDashForceAmount, ForceMode.Impulse);
             }  
             lastClickTime = Time.time;
-            Debug.Log(new Vector3(timeSinceLastClick, lastClickTime, Time.time));
+            //Debug.Log(new Vector3(timeSinceLastClick, lastClickTime, Time.time));
         }
       
     }
