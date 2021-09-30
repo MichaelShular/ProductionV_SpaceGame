@@ -9,3 +9,7 @@ https://forum.unity.com/threads/get-angle-and-set-angle-of-a-game-object.57155/
 
 enemies collide with entire layer of player bullets
 https://answers.unity.com/questions/261556/how-to-tell-if-my-character-hit-a-collider-of-a-ce.html
+
+Double clicking for dash 
+https://www.youtube.com/watch?v=9pKXXNgCgq8&ab_channel=CodeMonkey
+

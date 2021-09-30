@@ -16,7 +16,12 @@ public class BulletSpawn : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)  || Input.GetMouseButtonDown(0))
         {
-            Instantiate(spawningobject, this.transform);
+            GameObject a = Instantiate(spawningobject, this.transform);
+
+
+            a.transform.localPosition += Vector3.right * 3;
+            GameObject b = Instantiate(spawningobject, this.transform);
+            b.transform.localPosition += Vector3.left * 3;
         }
     }
 }
