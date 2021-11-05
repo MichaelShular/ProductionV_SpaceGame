@@ -26,10 +26,12 @@ public class asteroidSpawner : MonoBehaviour
         for(int x = 0; x < currentAmountAsteroids; x++)
         {
             GameObject temp = Instantiate(obj);
+            temp.transform.parent = transform;
             temp.transform.position = new Vector3(Random.Range(minXpos, maxXpos),
                Random.Range(minYpos, maxYpos), Random.Range(minZpos, maxZpos));
             temp.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(minPulse, maxPulse),
                Random.Range(minPulse, maxPulse), Random.Range(minPulse, maxPulse)), ForceMode.Impulse);
+           
         }
     }
 

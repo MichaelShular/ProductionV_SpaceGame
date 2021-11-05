@@ -13,3 +13,6 @@ https://answers.unity.com/questions/261556/how-to-tell-if-my-character-hit-a-col
 Double clicking for dash 
 https://www.youtube.com/watch?v=9pKXXNgCgq8&ab_channel=CodeMonkey
 
+Glass Material 
+https://www.youtube.com/watch?v=Gfq1aB2-qtk&ab_channel=SpeedTutor
+

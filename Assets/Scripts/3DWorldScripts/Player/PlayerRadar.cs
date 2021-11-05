@@ -28,7 +28,7 @@ public class PlayerRadar : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            GameObject.Find("EventSystem").GetComponent<RadarUI>().addText(other.gameObject);
+            GameObject.Find("EventSystem").GetComponent<RadarUI>().subtractText(other.gameObject);
 
         }
     }

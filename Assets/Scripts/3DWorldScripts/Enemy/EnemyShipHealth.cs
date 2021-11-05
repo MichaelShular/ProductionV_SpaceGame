@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyShipHealth : MonoBehaviour
 {
     [SerializeField] private float health;
-   
+    [SerializeField] private EnemyPool enemyPool;
+
     // Start is called before the first frame update
     void Start()
     {
+        enemyPool = GameObject.Find("EnemySpawner").GetComponent<EnemyPool>();
         health = 30;
     }
 
@@ -18,7 +20,7 @@ public class EnemyShipHealth : MonoBehaviour
         if(health <= 0)
         {
             GameObject.Find("EventSystem").GetComponent<ScoreManager>().addScore(100);
-            Destroy(this.gameObject);
+            enemyPool.returnEnemyToPool(this.gameObject);
         }
       
     }
