@@ -20,7 +20,7 @@ public class PlayerRadar : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            GameObject.Find("EventSystem").GetComponent<RadarUI>().addText(other.gameObject);
+            GameObject.Find("PlayerRadar3D").GetComponent<RadarController>().addTransform(other.gameObject);
             
         } 
     }
@@ -28,8 +28,14 @@ public class PlayerRadar : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            GameObject.Find("EventSystem").GetComponent<RadarUI>().subtractText(other.gameObject);
+            GameObject.Find("PlayerRadar3D").GetComponent<RadarController>().removeTransform(other.gameObject);
 
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, 100);
     }
 }

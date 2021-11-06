@@ -864,6 +864,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &724953714 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5332253361089780984, guid: 206077674120374419fbd79d69db6b03, type: 3}
+  m_PrefabInstance: {fileID: 1016120949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &862553236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1349,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2037013212}
     m_Modifications:
     - target: {fileID: 400270782953516478, guid: 206077674120374419fbd79d69db6b03, type: 3}
       propertyPath: m_Name
@@ -1356,19 +1361,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5332253361089780984, guid: 206077674120374419fbd79d69db6b03, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5332253361089780984, guid: 206077674120374419fbd79d69db6b03, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.015
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5332253361089780984, guid: 206077674120374419fbd79d69db6b03, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.015
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5332253361089780984, guid: 206077674120374419fbd79d69db6b03, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.015
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5332253361089780984, guid: 206077674120374419fbd79d69db6b03, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1380,7 +1385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5332253361089780984, guid: 206077674120374419fbd79d69db6b03, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5332253361089780984, guid: 206077674120374419fbd79d69db6b03, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1752,7 +1757,7 @@ GameObject:
   - component: {fileID: 2037013209}
   - component: {fileID: 2037013213}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: PlayerRadar3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1831,7 +1836,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.83}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_Children: []
+  m_Children:
+  - {fileID: 724953714}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1848,6 +1854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 400270782953516478, guid: 206077674120374419fbd79d69db6b03, type: 3}
+  playerTransform: {fileID: 0}
 --- !u!1 &2146301592
 GameObject:
   m_ObjectHideFlags: 0
