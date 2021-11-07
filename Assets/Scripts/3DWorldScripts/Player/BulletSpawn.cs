@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BulletSpawn : MonoBehaviour
 {
-    [SerializeField] private GameObject spawningobject;
+    BulletPool bulletPool;
+    [SerializeField] Transform leftWing;
+    [SerializeField] Transform rightWing;
     // Start is called before the first frame update
     void Start()
     {
-       
+        bulletPool = GameObject.Find("BulletManager").GetComponent<BulletPool>();
     }
 
     // Update is called once per frame
@@ -16,12 +18,16 @@ public class BulletSpawn : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)  || Input.GetMouseButtonDown(0))
         {
-            GameObject a = Instantiate(spawningobject, this.transform);
+            
+            GameObject a = bulletPool.getBulletFromPool();
+            a.transform.position = rightWing.position;
+            a.transform.forward = this.transform.forward;
+            //a.transform.localPosition += Vector3.right * 3;
 
-
-            a.transform.localPosition += Vector3.right * 3;
-            GameObject b = Instantiate(spawningobject, this.transform);
-            b.transform.localPosition += Vector3.left * 3;
+            GameObject b = bulletPool.getBulletFromPool();
+            b.transform.position = leftWing.position;
+            b.transform.forward = this.transform.forward;
+            //b.transform.localPosition += Vector3.left * 3;
         }
     }
 }

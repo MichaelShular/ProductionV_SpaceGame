@@ -6,9 +6,11 @@ public class BulletLifeTime : MonoBehaviour
 {
     [SerializeField] float lifeTimeAmount;
     private float timeLeft;
+    [SerializeField] BulletPool bulletPool;
     // Start is called before the first frame update
     void Start()
     {
+        bulletPool = GameObject.Find("BulletManager").GetComponent<BulletPool>();
         lifeTimeAmount = 5;
         timeLeft = lifeTimeAmount + Time.time;
     }
@@ -18,14 +20,20 @@ public class BulletLifeTime : MonoBehaviour
     {
         if (timeLeft < Time.time)
         {
-            Destroy(this.gameObject);
+            bulletPool.returnBulletToPool(this.gameObject);
         }
 
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
+        bulletPool.returnBulletToPool(this.gameObject);
     }
+
+    public void resetBulletLifeTime()
+    {
+        timeLeft = lifeTimeAmount + Time.time;
+    }
+
 
 }
