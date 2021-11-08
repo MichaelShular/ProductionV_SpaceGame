@@ -25,13 +25,17 @@ public class EnemyShipHealth : MonoBehaviour
       
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.gameObject.layer == 7)
+        if (other.gameObject.layer == 7)
         {
             health -= 10;
             Debug.Log(health);
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 
 }
