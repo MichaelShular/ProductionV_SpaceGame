@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1140702283986706870
+--- !u!1 &472232075366626929
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6751286853718316055}
-  - component: {fileID: 1112256943110855425}
-  - component: {fileID: 3417865050544086641}
-  - component: {fileID: 2469622289104915320}
-  m_Layer: 7
-  m_Name: PlayerBullet
-  m_TagString: PlayerBullet
+  - component: {fileID: 472232075366626925}
+  - component: {fileID: 472232075366626930}
+  - component: {fileID: 472232075366626931}
+  - component: {fileID: 472232075366626928}
+  - component: {fileID: 472232075366626924}
+  m_Layer: 9
+  m_Name: EnemyBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6751286853718316055
+--- !u!4 &472232075366626925
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140702283986706870}
+  m_GameObject: {fileID: 472232075366626929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4066360509800942480}
+  - {fileID: 472232076071310196}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1112256943110855425
+--- !u!54 &472232075366626930
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140702283986706870}
+  m_GameObject: {fileID: 472232075366626929}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -50,35 +51,48 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3417865050544086641
+--- !u!114 &472232075366626931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140702283986706870}
+  m_GameObject: {fileID: 472232075366626929}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e55f104dda3d8b4495033eded0e13c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 100
---- !u!114 &2469622289104915320
+  bulletSpeed: 10
+--- !u!114 &472232075366626928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140702283986706870}
+  m_GameObject: {fileID: 472232075366626929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e38204b6bc1a034b9bef1c5f1ed8681, type: 3}
+  m_Script: {fileID: 11500000, guid: 555688927a664d44fa90dea56bb15bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTimeAmount: 3
-  bulletPool: {fileID: 0}
+  lifeTimeAmount: 6
   enemyBulletPool: {fileID: 0}
---- !u!1 &6915459288344771725
+--- !u!136 &472232075366626924
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472232075366626929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.09
+  m_Height: 2
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &472232076071310197
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,46 +100,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4066360509800942480}
-  - component: {fileID: 5301379302296426120}
-  - component: {fileID: 8697639919860002273}
-  - component: {fileID: 1443884314332838397}
-  m_Layer: 7
+  - component: {fileID: 472232076071310196}
+  - component: {fileID: 472232076071310193}
+  - component: {fileID: 472232076071310198}
+  m_Layer: 9
   m_Name: Cylinder
-  m_TagString: PlayerBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4066360509800942480
+--- !u!4 &472232076071310196
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6915459288344771725}
+  m_GameObject: {fileID: 472232076071310197}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 1, z: 0.1}
+  m_LocalScale: {x: 0.099999994, y: 1, z: 0.099999994}
   m_Children: []
-  m_Father: {fileID: 6751286853718316055}
+  m_Father: {fileID: 472232075366626925}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
---- !u!33 &5301379302296426120
+--- !u!33 &472232076071310193
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6915459288344771725}
+  m_GameObject: {fileID: 472232076071310197}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8697639919860002273
+--- !u!23 &472232076071310198
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6915459288344771725}
+  m_GameObject: {fileID: 472232076071310197}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -161,17 +174,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1443884314332838397
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6915459288344771725}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

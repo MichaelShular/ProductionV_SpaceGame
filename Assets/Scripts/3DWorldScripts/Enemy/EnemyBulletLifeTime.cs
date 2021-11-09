@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletLifeTime : MonoBehaviour
+public class EnemyBulletLifeTime : MonoBehaviour
 {
     [SerializeField] float lifeTimeAmount;
     private float timeLeft;
-    [SerializeField] BulletPool bulletPool;
-
-
+    [SerializeField] EnemyBulletPool enemyBulletPool;
     // Start is called before the first frame update
     void Start()
     {
-        bulletPool = GameObject.Find("BulletManager").GetComponent<BulletPool>();
+        enemyBulletPool = GameObject.Find("EnemyBulletManager").GetComponent<EnemyBulletPool>();
         timeLeft = lifeTimeAmount + Time.time;
     }
 
@@ -21,16 +19,20 @@ public class BulletLifeTime : MonoBehaviour
     {
         if (timeLeft < Time.time)
         {
-            bulletPool.returnBulletToPool(this.gameObject);
+            enemyBulletPool.returnBulletToPool(this.gameObject);
         }
-
     }
+
     private void OnTriggerEnter(Collider other)
-    {
-        bulletPool.returnBulletToPool(this.gameObject);
+    {    
+        if(other.tag == "Player")
+        {
+            enemyBulletPool.returnBulletToPool(this.gameObject);
+        }
+        
     }
 
-    public void resetBulletLifeTime()
+    public void resetEnemyBulletLifeTime()
     {
         timeLeft = lifeTimeAmount + Time.time;
     }

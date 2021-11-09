@@ -10,19 +10,29 @@ public class BaseEnemyAI : MonoBehaviour
         Shoot
 
     }
-    private EnemyStates currentState;
+    [SerializeField] private EnemyStates currentState;
 
     private Rigidbody enemyRigidbody;
     [SerializeField] float speed;
     [SerializeField] float turningSpeed;
 
+    
     private Transform targetTransform;
-    [SerializeField] float enemyStoppingDistence; 
+    [SerializeField] float enemyStoppingDistence;
+
+    [SerializeField] EnemyBulletPool enemyBulletPool;
+    [SerializeField]private Transform gunBarrel;
+
+    [SerializeField] private float timeBetweenShot;
+    private float timeForNextShot;
+
     // Start is called before the first frame update
     void Start()
     {
         enemyRigidbody = this.GetComponent<Rigidbody>();
         targetTransform = GameObject.Find("Player").transform;
+        enemyBulletPool = GameObject.Find("EnemyBulletManager").GetComponent<EnemyBulletPool>();
+        timeForNextShot = timeBetweenShot;
     }
 
     // Update is called once per frame
@@ -46,7 +56,7 @@ public class BaseEnemyAI : MonoBehaviour
                 break;
             case EnemyStates.Shoot:
                 turingToPlayer();
-                Debug.Log("Shooting");
+                ShootTarget();
                 break;
             default:
                 break;
@@ -61,6 +71,17 @@ public class BaseEnemyAI : MonoBehaviour
     {
         Quaternion rotation = Quaternion.LookRotation(targetTransform.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, turningSpeed * Time.deltaTime );
+    }
+
+    private void ShootTarget()
+    {
+        if(timeForNextShot < Time.time)
+        {
+            timeForNextShot = timeBetweenShot + Time.time;
+            GameObject a = enemyBulletPool.getBulletFromPool();
+            a.transform.position = gunBarrel.position;
+            a.transform.forward = this.transform.forward;
+        }   
     }
     private void OnDrawGizmos()
     {

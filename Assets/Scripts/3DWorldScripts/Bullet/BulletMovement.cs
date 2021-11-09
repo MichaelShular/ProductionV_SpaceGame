@@ -11,7 +11,6 @@ public class BulletMovement : MonoBehaviour
     void Start()
     {
         rdbody = this.GetComponent<Rigidbody>();
-        bulletSpeed = 100;
     }
 
     // Update is called once per frame
