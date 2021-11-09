@@ -9,6 +9,7 @@ public class PlayerDroneControl : MonoBehaviour
     [SerializeField] float turningSpeed;
     private Transform targetTransform;
     private bool isReturning;
+    private GameObject pickUpToDestroy;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class PlayerDroneControl : MonoBehaviour
     {
         if (other.tag == "PickUp" && !isReturning)
         {
+            pickUpToDestroy = other.gameObject;
             StartCoroutine(circleItem());
         }
 
@@ -57,6 +59,7 @@ public class PlayerDroneControl : MonoBehaviour
         yield return new WaitForSeconds(6);
         targetTransform = GameObject.Find("DroneSpawn").transform;
         isReturning = true;
+        Destroy(pickUpToDestroy);
     }
         
 }
