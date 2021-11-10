@@ -22,6 +22,7 @@ public class BulletSpawn : MonoBehaviour
             GameObject a = bulletPool.getBulletFromPool();
             a.transform.position = rightWing.position;
             a.transform.forward = this.transform.forward;
+            a.transform.localRotation = this.transform.localRotation;
             //a.transform.localPosition += Vector3.right * 3;
 
             GameObject b = bulletPool.getBulletFromPool();

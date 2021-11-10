@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e55f104dda3d8b4495033eded0e13c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 100
+  bulletSpeed: 10
 --- !u!114 &2469622289104915320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +77,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTimeAmount: 3
   bulletPool: {fileID: 0}
-  enemyBulletPool: {fileID: 0}
 --- !u!1 &6915459288344771725
 GameObject:
   m_ObjectHideFlags: 0
