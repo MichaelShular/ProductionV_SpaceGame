@@ -10,13 +10,14 @@ public class ProgressBarController : MonoBehaviour
     [SerializeField] private Sprite greenBarBit;
     private GameObject[] barBits;
     private bool[] hasGotten;
+    [SerializeField] private int costForUpgrade;
 
     // Start is called before the first frame update
     void Start()
     {
         barBits = new GameObject[amountOfBarBits];
         hasGotten = new bool[amountOfBarBits];
-
+        
         for (int i = 0; i < amountOfBarBits; i++)
         {
             GameObject temp = barBits[i] = Instantiate(barBitGrey);
@@ -31,17 +32,13 @@ public class ProgressBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-           
-        }
     }
 
     public void upgradeSystem()
     {
-        if (hasGotten[hasGotten.Length -1])
+        if (hasGotten[hasGotten.Length -1] || GameObject.Find("EventSystem").GetComponent<ScrapController>().getScrapTotal() < costForUpgrade)
         {
-            Debug.Log("Maxed Out");
+            Debug.Log("Maxed Out or not enough Scrap");
             return; 
         }
         for (int i = 0; i < amountOfBarBits; i++)
@@ -50,6 +47,7 @@ public class ProgressBarController : MonoBehaviour
             {
                 barBits[i].GetComponent<Image>().sprite = greenBarBit;
                 hasGotten[i] = true;
+                GameObject.Find("EventSystem").GetComponent<ScrapController>().changeScrapTotal(-costForUpgrade);
                 Debug.Log("One Upgrade");
                 return;
             }
