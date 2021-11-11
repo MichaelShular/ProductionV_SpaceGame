@@ -16,7 +16,12 @@ public class BulletMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         rdbody.velocity = this.transform.forward * bulletSpeed; 
+    }
+
+    public void resetVel()
+    {
+        rdbody.velocity = Vector3.zero;
+        rdbody.angularVelocity = Vector3.zero;
     }
 }

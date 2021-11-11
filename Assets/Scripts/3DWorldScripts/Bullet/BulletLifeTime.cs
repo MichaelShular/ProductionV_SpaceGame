@@ -21,17 +21,26 @@ public class BulletLifeTime : MonoBehaviour
     {
         if (timeLeft < Time.time)
         {
+            OnResetTransform();
             bulletPool.returnBulletToPool(this.gameObject);
         }
 
     }
     private void OnTriggerEnter(Collider other)
     {
+        OnResetTransform();
         bulletPool.returnBulletToPool(this.gameObject);
     }
 
     public void resetBulletLifeTime()
     {
         timeLeft = lifeTimeAmount + Time.time;
+    }
+
+    private void OnResetTransform()
+    {
+        this.transform.position = Vector3.zero;
+        this.transform.rotation = Quaternion.identity;
+        this.GetComponent<BulletMovement>().resetVel();
     }
 }

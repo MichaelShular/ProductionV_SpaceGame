@@ -38,6 +38,7 @@ public class BulletPool : MonoBehaviour
         }
         tempBullet = bulletPool.Dequeue();
         tempBullet.GetComponent<BulletLifeTime>().resetBulletLifeTime();
+        
         tempBullet.SetActive(true);
         return tempBullet;
     }

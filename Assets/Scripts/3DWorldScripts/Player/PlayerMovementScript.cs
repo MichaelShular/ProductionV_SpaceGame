@@ -56,12 +56,12 @@ public class PlayerMovementScript : MonoBehaviour
         if (Input.mousePosition.x > (Screen.width / 2) + 100)
         {
             maxAmountOfXRotation += 0.1f * Time.deltaTime;
-            maxAmountOfXRotation = Mathf.Clamp(maxAmountOfXRotation, -0.1f, 0.1f);
+            maxAmountOfXRotation = Mathf.Clamp(maxAmountOfXRotation, -0.5f, 0.5f);
         }
         else if (Input.mousePosition.x < (Screen.width / 2) - 100)
         {
             maxAmountOfXRotation -= 0.1f * Time.deltaTime;
-            maxAmountOfXRotation = Mathf.Clamp(maxAmountOfXRotation, -0.1f, 0.1f);
+            maxAmountOfXRotation = Mathf.Clamp(maxAmountOfXRotation, -0.5f, 0.5f);
         }
         else
         {
