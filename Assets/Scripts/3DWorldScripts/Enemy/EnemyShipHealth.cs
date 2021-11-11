@@ -6,6 +6,7 @@ public class EnemyShipHealth : MonoBehaviour
 {
     [SerializeField] private float health;
     [SerializeField] private EnemyPool enemyPool;
+    [SerializeField] private GameObject scrap;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class EnemyShipHealth : MonoBehaviour
         if(health <= 0)
         {
             GameObject.Find("EventSystem").GetComponent<ScoreManager>().addScore(100);
+            GameObject temp = Instantiate(scrap);
+            temp.transform.position = transform.position;
             enemyPool.returnEnemyToPool(this.gameObject);
         }
       

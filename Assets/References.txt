@@ -18,3 +18,9 @@ https://www.youtube.com/watch?v=Gfq1aB2-qtk&ab_channel=SpeedTutor
 
 Enemy AI turning
 https://www.youtube.com/watch?v=TsB_6yjACDY&t=96s&ab_channel=BurgZergArcade 
+
+random sign
+https://forum.unity.com/threads/exclude-range-within-random-range-between-negative-and-positive-float-c-csharp.406895/
+
+camra rotation idea 
+https://www.youtube.com/watch?v=_QajrabyTJc&ab_channel=Brackeys

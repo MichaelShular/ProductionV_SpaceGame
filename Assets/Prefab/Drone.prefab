@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   enemyPool: {fileID: 0}
+  scrap: {fileID: 5759674164299459941, guid: 67fb674350816d241a5a638573206c27, type: 3}
 --- !u!114 &-997506729991265471
 MonoBehaviour:
   m_ObjectHideFlags: 0
