@@ -20,7 +20,7 @@ public class EnemyShipHealth : MonoBehaviour
     {
         if(health <= 0)
         {
-            GameObject.Find("EventSystem").GetComponent<ScoreManager>().addScore(100);
+            //GameObject.Find("EventSystem").GetComponent<ScoreManager>().addScore(100);
             GameObject temp = Instantiate(scrap);
             temp.transform.position = transform.position;
             enemyPool.returnEnemyToPool(this.gameObject);
