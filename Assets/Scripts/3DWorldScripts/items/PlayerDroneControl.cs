@@ -51,6 +51,7 @@ public class PlayerDroneControl : MonoBehaviour
         if(other.tag == "DroneSpawn" && isReturning)
         {
             //call inventory
+            GameObject.Find("Player").GetComponent<PlayerInventory>().setAmountOfScrap(10);
             Destroy(this.gameObject); 
         }
     }
