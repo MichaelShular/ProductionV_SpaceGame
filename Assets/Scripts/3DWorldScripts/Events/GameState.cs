@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+using System.IO;
 public class GameState : MonoBehaviour
 {
     [SerializeField] private Canvas stateCanvas;
@@ -12,11 +12,11 @@ public class GameState : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scrapCollected;
     [SerializeField] private int amountOfEnemiesToDefeat;
     private int amountOfEnemiesDefeated;
-
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerCollider>();
+        PlayerPrefs.SetInt("ScrapCollect", 0);
     }
 
     // Update is called once per frame
@@ -39,6 +39,9 @@ public class GameState : MonoBehaviour
         stateCanvas.enabled = true;
         stateText.text = typeOfState;
         scrapCollected.text = "Amount of scrap collected: " + GameObject.Find("Player").GetComponent<PlayerInventory>().getAmountOfScarp().ToString();
+
+        PlayerPrefs.SetInt("ScrapCollect", GameObject.Find("Player").GetComponent<PlayerInventory>().getAmountOfScarp());
+        PlayerPrefs.Save();
     }
 
     public void loadGameMenu()

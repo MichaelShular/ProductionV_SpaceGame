@@ -10,23 +10,40 @@ public class ScrapController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scrapTotal = 140;
+        scrapTotal = PlayerPrefs.GetInt("ScrapSaved") + PlayerPrefs.GetInt("ScrapCollect");
+        Debug.Log(PlayerPrefs.GetInt("ScrapCollect"));
+        PlayerPrefs.SetInt("ScrapCollect", 0);
+        PlayerPrefs.SetInt("ScrapSaved", 0);
+        loadingScrapAndPowerUp();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        scrapAmountUI.text = scrapTotal.ToString();
+       
     }
 
     public void changeScrapTotal(int a)
     {
         scrapTotal += a;
+        scrapAmountUI.text = scrapTotal.ToString();
+
+        PlayerPrefs.SetInt("ScrapSaved", scrapTotal);
+        PlayerPrefs.Save();
     }
 
+    public void loadingScrapAndPowerUp()
+    {
+        scrapAmountUI.text = scrapTotal.ToString();
+        PlayerPrefs.SetInt("ScrapSaved", scrapTotal);
+        PlayerPrefs.Save();
+    }
     public int getScrapTotal()
     {
         return scrapTotal;
     }
+
+    
 
 }

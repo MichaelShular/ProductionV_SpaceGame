@@ -11,13 +11,14 @@ public class ProgressBarController : MonoBehaviour
     private GameObject[] barBits;
     private bool[] hasGotten;
     [SerializeField] private int costForUpgrade;
+    [SerializeField] public string upgradeName;
 
     // Start is called before the first frame update
     void Start()
     {
         barBits = new GameObject[amountOfBarBits];
         hasGotten = new bool[amountOfBarBits];
-        
+
         for (int i = 0; i < amountOfBarBits; i++)
         {
             GameObject temp = barBits[i] = Instantiate(barBitGrey);
@@ -26,6 +27,8 @@ public class ProgressBarController : MonoBehaviour
 
             hasGotten[i] = false;
         }
+
+        loadBarBits();
 
     }
 
@@ -36,10 +39,10 @@ public class ProgressBarController : MonoBehaviour
 
     public void upgradeSystem()
     {
-        if (hasGotten[hasGotten.Length -1] || GameObject.Find("EventSystem").GetComponent<ScrapController>().getScrapTotal() < costForUpgrade)
+        if (hasGotten[hasGotten.Length - 1] || GameObject.Find("EventSystem").GetComponent<ScrapController>().getScrapTotal() < costForUpgrade)
         {
             Debug.Log("Maxed Out or not enough Scrap");
-            return; 
+            return;
         }
         for (int i = 0; i < amountOfBarBits; i++)
         {
@@ -48,6 +51,7 @@ public class ProgressBarController : MonoBehaviour
                 barBits[i].GetComponent<Image>().sprite = greenBarBit;
                 hasGotten[i] = true;
                 GameObject.Find("EventSystem").GetComponent<ScrapController>().changeScrapTotal(-costForUpgrade);
+                PlayerPrefs.SetInt(upgradeName, PlayerPrefs.GetInt(upgradeName) + 1);
                 Debug.Log("One Upgrade");
                 return;
             }
@@ -55,5 +59,16 @@ public class ProgressBarController : MonoBehaviour
 
     }
 
+    public void loadBarBits()
+    {
+        int temp = PlayerPrefs.GetInt(upgradeName);
+
+        for (int i = 0; i < temp; i++)
+        {
+            barBits[i].GetComponent<Image>().sprite = greenBarBit;
+            hasGotten[i] = true;
+        }
+
+    }
 
 }
