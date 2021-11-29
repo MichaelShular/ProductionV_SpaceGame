@@ -10,9 +10,9 @@ public class PlayerCollider : MonoBehaviour
     [SerializeField] private Slider healthUI;
     void Start()
     {
+        health = 30 + (10 * PlayerPrefs.GetInt("Hull"));
         healthUI.maxValue = health;
         healthUI.value = health;
-
     }
 
     // Update is called once per frame
@@ -27,7 +27,6 @@ public class PlayerCollider : MonoBehaviour
         {
             ChangePlayerHealth(-10);
         }
-        
     }
 
     public void ChangePlayerHealth(int healthChange)
