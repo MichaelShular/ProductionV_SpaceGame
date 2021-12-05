@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using TMPro;
 public class PlayerMovementScript : MonoBehaviour
 {
     [SerializeField] private float speed;
@@ -15,6 +15,9 @@ public class PlayerMovementScript : MonoBehaviour
     private Vector3 amount = Vector3.zero;
     float maxAmountOfYRotation;
     float maxAmountOfXRotation;
+    [SerializeField] TextMeshProUGUI speedUI;
+    private float speedForUI;
+    private float maxSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,7 @@ public class PlayerMovementScript : MonoBehaviour
         //turnSpeed = 1f;
         changeSpeedAmount = 1f;
         sideDashForceAmount = 45;
-
+        maxSpeed = 0.1f + 0.05f * PlayerPrefs.GetInt("Speed");
         Cursor.lockState = CursorLockMode.Confined;
     }
 
@@ -77,9 +80,10 @@ public class PlayerMovementScript : MonoBehaviour
         {
             speed = 0;
         }
-        if (speed > 0.4f)
+        if (speed > maxSpeed)
         {
-            speed = 0.4f;
+            speed = maxSpeed;
+            Debug.Log("max");
         }
         
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
@@ -92,7 +96,9 @@ public class PlayerMovementScript : MonoBehaviour
             lastClickTime = Time.time;
             //Debug.Log(new Vector3(timeSinceLastClick, lastClickTime, Time.time));
         }
-      
+
+        speedForUI = Vector3.Magnitude(playerRigidbody.velocity);
+        speedUI.text = Mathf.RoundToInt(speedForUI).ToString();
     }
 
     private void FixedUpdate()

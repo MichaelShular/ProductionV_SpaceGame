@@ -10,7 +10,8 @@ public class ScrapController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scrapTotal = PlayerPrefs.GetInt("ScrapSaved") + PlayerPrefs.GetInt("ScrapCollect");
+        //Get rid of 100 to stop from getting scrap
+        scrapTotal = 100 + PlayerPrefs.GetInt("ScrapSaved") + PlayerPrefs.GetInt("ScrapCollect");
         Debug.Log(PlayerPrefs.GetInt("ScrapCollect"));
         PlayerPrefs.SetInt("ScrapCollect", 0);
         PlayerPrefs.SetInt("ScrapSaved", 0);

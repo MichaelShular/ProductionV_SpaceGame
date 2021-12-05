@@ -27,7 +27,10 @@ public class ProgressBarController : MonoBehaviour
 
             hasGotten[i] = false;
         }
-
+        
+        //Reset Upgrades to 0
+        //PlayerPrefs.SetInt(upgradeName, 0);
+       
         loadBarBits();
 
     }
@@ -62,7 +65,7 @@ public class ProgressBarController : MonoBehaviour
     public void loadBarBits()
     {
         int temp = PlayerPrefs.GetInt(upgradeName);
-
+        
         for (int i = 0; i < temp; i++)
         {
             barBits[i].GetComponent<Image>().sprite = greenBarBit;
