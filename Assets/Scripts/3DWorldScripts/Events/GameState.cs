@@ -24,7 +24,8 @@ public class GameState : MonoBehaviour
     {
         if(player.getPlayerHealth() <= 0)
         {
-            openGameStateCanvas("Your ship took to much damage");
+            StartCoroutine(delayLose());
+            
         }
 
         if( Input.GetKeyDown(KeyCode.L) && amountOfEnemiesDefeated >= amountOfEnemiesToDefeat)
@@ -52,5 +53,11 @@ public class GameState : MonoBehaviour
     public void setEnemiesDefeated()
     {
         amountOfEnemiesDefeated++;
+    }
+
+    IEnumerator delayLose()
+    {
+        yield return new WaitForSeconds(0.5f);
+        openGameStateCanvas("Your ship took to much damage");
     }
 }

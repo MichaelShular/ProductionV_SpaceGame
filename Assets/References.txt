@@ -24,3 +24,9 @@ https://forum.unity.com/threads/exclude-range-within-random-range-between-negati
 
 camra rotation idea 
 https://www.youtube.com/watch?v=_QajrabyTJc&ab_channel=Brackeys
+
+red flash for ship taking damage
+https://www.youtube.com/watch?v=d9FaI28Yf9A&ab_channel=Firemind
+
+lerping red flash
+https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/
