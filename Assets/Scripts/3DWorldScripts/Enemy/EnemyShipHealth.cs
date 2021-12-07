@@ -7,12 +7,14 @@ public class EnemyShipHealth : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private EnemyPool enemyPool;
     [SerializeField] private GameObject scrap;
+    [SerializeField] private float playerDamage;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyPool = GameObject.Find("EnemySpawner").GetComponent<EnemyPool>();
         health = 30;
+        playerDamage = 10 + (5 * PlayerPrefs.GetInt("GunDamage"));
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class EnemyShipHealth : MonoBehaviour
     {
         if (other.gameObject.layer == 7)
         {
-            health -= 10;
+            health -= playerDamage;
             Debug.Log(health);
         }
     }

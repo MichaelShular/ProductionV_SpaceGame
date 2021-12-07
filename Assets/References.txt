@@ -30,3 +30,7 @@ https://www.youtube.com/watch?v=d9FaI28Yf9A&ab_channel=Firemind
 
 lerping red flash
 https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/
+
+
+using a coroutine to update slider in sheildscooldown
+https://forum.unity.com/threads/setting-slider-value-over-time-using-c-script.377402/

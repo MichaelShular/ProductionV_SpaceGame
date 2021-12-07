@@ -14,6 +14,14 @@ public class PlayerCollider : MonoBehaviour
     [SerializeField] private float colorChangeSpeed;
     float timeElapsed;
 
+    private bool shieldsUp;
+    int currentShieldCount;
+    int maxShieldCount;
+    float cooldownTimerForShields;
+
+    [SerializeField] private Slider shieldSilderUI;
+
+
     void Start()
     {
         health = 30 + (10 * PlayerPrefs.GetInt("Hull"));
@@ -22,6 +30,12 @@ public class PlayerCollider : MonoBehaviour
         maxColor = new Vector4(1.0f, 0.0f, 0.0f, 0.8f);
         minColor = new Vector4(1.0f, 0.0f, 0.0f, 0.0f);
 
+        maxShieldCount = PlayerPrefs.GetInt("Shields"); 
+        currentShieldCount = maxShieldCount;
+        cooldownTimerForShields = 10 - (PlayerPrefs.GetInt("ShieldsCooldown") * 2);
+
+        shieldSilderUI.maxValue = cooldownTimerForShields;
+        shieldSilderUI.value = 0;
     }
 
     // Update is called once per frame
@@ -44,10 +58,17 @@ public class PlayerCollider : MonoBehaviour
     {
         if (other.CompareTag("EnemyBullet"))
         {
-            ChangePlayerHealth(-10);
+            if (currentShieldCount > 0)
+            {
+                currentShieldCount--;
+                StartCoroutine(coolDownForShields(cooldownTimerForShields));
+            }
+            else
+            {
+                ChangePlayerHealth(-10);
+                redFilter.GetComponent<Image>().color = maxColor;
+            }
 
-            
-            redFilter.GetComponent<Image>().color = maxColor;
         }
     }
 
@@ -60,5 +81,21 @@ public class PlayerCollider : MonoBehaviour
     public int getPlayerHealth()
     {
         return health;
+    }
+
+    IEnumerator coolDownForShields(float timer)
+    {
+        float animationTime = 0f;
+        shieldSilderUI.value = timer;
+        while (animationTime < timer)
+        {
+            animationTime += Time.deltaTime;
+            float lerpValue = animationTime / timer;
+            shieldSilderUI.value = Mathf.Lerp(timer, 0.0f, lerpValue);
+            yield return null;
+        }
+        //yield return new WaitForSeconds(timer);
+        //Debug.Log("UP");
+        currentShieldCount++;
     }
 }

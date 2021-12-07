@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 public class PauseMenuButtons : MonoBehaviour
 {
     [SerializeField] Canvas pauseMenuToggle;
+    [SerializeField] private TextMeshProUGUI currentMission;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class PauseMenuButtons : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            currentMission.text = "Mission: " + GetComponent<GameState>().getEneimesDefeated().ToString() + " / " + GetComponent<GameState>().getMissionAmount().ToString();
             Time.timeScale = 0;
             pauseMenuToggle.enabled = true;
         }

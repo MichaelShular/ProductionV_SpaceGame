@@ -12,9 +12,11 @@ public class GameState : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scrapCollected;
     [SerializeField] private int amountOfEnemiesToDefeat;
     private int amountOfEnemiesDefeated;
+
     // Start is called before the first frame update
     void Start()
     {
+
         player = GameObject.Find("Player").GetComponent<PlayerCollider>();
         PlayerPrefs.SetInt("ScrapCollect", 0);
     }
@@ -55,6 +57,15 @@ public class GameState : MonoBehaviour
         amountOfEnemiesDefeated++;
     }
 
+    public int getEneimesDefeated()
+    {
+        return amountOfEnemiesDefeated;
+    }
+
+    public int getMissionAmount()
+    {
+        return amountOfEnemiesToDefeat;
+    }
     IEnumerator delayLose()
     {
         yield return new WaitForSeconds(0.5f);

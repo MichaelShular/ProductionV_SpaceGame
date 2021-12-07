@@ -12,7 +12,6 @@ public class ScrapController : MonoBehaviour
     {
         //Get rid of 100 to stop from getting scrap
         scrapTotal = 100 + PlayerPrefs.GetInt("ScrapSaved") + PlayerPrefs.GetInt("ScrapCollect");
-        Debug.Log(PlayerPrefs.GetInt("ScrapCollect"));
         PlayerPrefs.SetInt("ScrapCollect", 0);
         PlayerPrefs.SetInt("ScrapSaved", 0);
         loadingScrapAndPowerUp();

@@ -55,7 +55,6 @@ public class ProgressBarController : MonoBehaviour
                 hasGotten[i] = true;
                 GameObject.Find("EventSystem").GetComponent<ScrapController>().changeScrapTotal(-costForUpgrade);
                 PlayerPrefs.SetInt(upgradeName, PlayerPrefs.GetInt(upgradeName) + 1);
-                Debug.Log("One Upgrade");
                 return;
             }
         }
