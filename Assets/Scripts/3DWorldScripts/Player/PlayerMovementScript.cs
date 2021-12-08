@@ -51,7 +51,7 @@ public class PlayerMovementScript : MonoBehaviour
         }
         else
         {
-            maxAmountOfYRotation = 0;
+            maxAmountOfYRotation *= 0.99f;
             //amount = Vector3.zero;
 
         }
@@ -68,7 +68,7 @@ public class PlayerMovementScript : MonoBehaviour
         }
         else
         {
-            maxAmountOfXRotation = 0;
+            maxAmountOfXRotation *= 0.99f;
         }
 
         amount = new Vector3(maxAmountOfYRotation, maxAmountOfXRotation, 0);
