@@ -50,3 +50,6 @@ https://www.youtube.com/watch?v=MxjsGCUDiwo&ab_channel=WeeklyHow
 https://answers.unity.com/questions/1682578/universal-render-pipeline-bloom-not-working-correc.html
 https://www.youtube.com/watch?v=czE2oLyrNLM&ab_channel=Clipper
 https://learn.unity.com/tutorial/creating-a-global-post-processing-volume-2019-3#60064a2fedbc2a31df244f9d
+
+Help find some things i forgot about scrolling UI
+https://www.youtube.com/watch?v=ZI6DwJtjlBA&ab_channel=c00pala
