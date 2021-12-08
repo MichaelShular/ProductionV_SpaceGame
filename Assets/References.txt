@@ -34,3 +34,19 @@ https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/
 
 using a coroutine to update slider in sheildscooldown
 https://forum.unity.com/threads/setting-slider-value-over-time-using-c-script.377402/
+
+Stuff Used to help with shaders
+https://www.youtube.com/watch?v=8aeHi04l_-M&ab_channel=Clipper
+https://www.youtube.com/watch?v=Ar9eIn4z6XE&ab_channel=Brackeys
+https://www.youtube.com/watch?v=VsUK9K6UbY4&ab_channel=CodeMonkey
+https://www.youtube.com/watch?v=mGd3nYXj1Oc&t=311s&ab_channel=GabrielAguiarProd.
+
+Help fixed Matireals turning pink
+https://www.youtube.com/watch?v=nB0r0c-SIVg&ab_channel=UGuruz
+
+Stuff used to help with post-processing and bloom
+https://www.youtube.com/watch?v=5dvst-lbx1Y&ab_channel=Clipper
+https://www.youtube.com/watch?v=MxjsGCUDiwo&ab_channel=WeeklyHow
+https://answers.unity.com/questions/1682578/universal-render-pipeline-bloom-not-working-correc.html
+https://www.youtube.com/watch?v=czE2oLyrNLM&ab_channel=Clipper
+https://learn.unity.com/tutorial/creating-a-global-post-processing-volume-2019-3#60064a2fedbc2a31df244f9d
