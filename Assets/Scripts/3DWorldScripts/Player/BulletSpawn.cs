@@ -13,6 +13,8 @@ public class BulletSpawn : MonoBehaviour
     //private float currentTime;
     private bool canFire;
     [SerializeField] private Slider gunsSilderUI;
+    private SFXManager sfx;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,11 @@ public class BulletSpawn : MonoBehaviour
         canFire = true;
         gunsSilderUI.maxValue = reloadSpeed;
         gunsSilderUI.value = 0;
+
+        if (GameObject.Find("SFXManager") != null)
+        {
+            sfx = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        }
     }
 
     // Update is called once per frame
@@ -30,13 +37,15 @@ public class BulletSpawn : MonoBehaviour
     {
         //if (currentTime < Time.time)
         //{
-            
+
         //    currentTime = reloadSpeed + Time.time;
         //    canFire = true;
         //}
 
-        if ( Time.timeScale != 0 && canFire && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+        if (Time.timeScale != 0 && canFire && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
+            sfx.PlaySFX(SFXID.ShootLaser);
+
             gunsSilderUI.value = reloadSpeed;
 
             GameObject a = bulletPool.getBulletFromPool();
@@ -70,7 +79,7 @@ public class BulletSpawn : MonoBehaviour
             gunsSilderUI.value = Mathf.Lerp(timer, 0.0f, lerpValue);
             yield return null;
         }
-        
+
         canFire = true;
     }
 }

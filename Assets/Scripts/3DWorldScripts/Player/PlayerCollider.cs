@@ -20,7 +20,7 @@ public class PlayerCollider : MonoBehaviour
     float cooldownTimerForShields;
 
     [SerializeField] private Slider shieldSilderUI;
-
+    private SFXManager sfx;
 
     void Start()
     {
@@ -36,6 +36,10 @@ public class PlayerCollider : MonoBehaviour
 
         shieldSilderUI.maxValue = cooldownTimerForShields;
         shieldSilderUI.value = 0;
+        if (GameObject.Find("SFXManager") != null)
+        {
+            sfx = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        }
     }
 
     // Update is called once per frame
@@ -61,10 +65,12 @@ public class PlayerCollider : MonoBehaviour
             if (currentShieldCount > 0)
             {
                 currentShieldCount--;
+                sfx.PlaySFX(SFXID.ShieldHit);
                 StartCoroutine(coolDownForShields(cooldownTimerForShields));
             }
             else
             {
+                sfx.PlaySFX(SFXID.PlayerHit);
                 ChangePlayerHealth(-10);
                 redFilter.GetComponent<Image>().color = maxColor;
             }
