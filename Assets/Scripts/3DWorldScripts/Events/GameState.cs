@@ -14,6 +14,7 @@ public class GameState : MonoBehaviour
     [SerializeField] private int amountOfEnemiesToDefeat;
     private int amountOfEnemiesDefeated;
     [SerializeField] private Image redFilter;
+    private SFXManager sfx;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,10 @@ public class GameState : MonoBehaviour
         if (GameObject.Find("BMGManager") != null)
         {
             GameObject.Find("BMGManager").GetComponent<BMGMananger>().PlayTrack(TrackID.BattleMusic);
+        }
+        if (GameObject.Find("SFXManager") != null)
+        {
+            sfx = GameObject.Find("SFXManager").GetComponent<SFXManager>();
         }
     }
 
@@ -57,6 +62,7 @@ public class GameState : MonoBehaviour
 
     public void loadGameMenu()
     {
+        sfx.PlaySFX(SFXID.UIClick);
         SceneManager.LoadScene("GameMissionScene");
     }
     

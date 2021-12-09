@@ -21,3 +21,7 @@ Outdoor Ground Textures by: A dog's life software
 Magnetic Sound fx
 https://assetstore.unity.com/packages/audio/sound-fx/industrial-sci-fi-sfx-187841#content
 Industrial Sci-fi sfx by: Mudya
+
+Pick Up drone
+https://assetstore.unity.com/packages/3d/characters/robots/sci-fi-drones-90326
+Sci fi Drones by: Lukas Bobor

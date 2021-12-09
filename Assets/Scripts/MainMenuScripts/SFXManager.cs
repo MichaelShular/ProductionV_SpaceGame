@@ -2,25 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-public enum TrackID
+
+public enum SFXID
 {
-    StartMenu,
-    MissionMenu,
-    BattleMusic,
+    ShootLaser,
+    UIClick,
+    PlayerHit,
+    ShieldHit
 }
-public class BMGMananger : MonoBehaviour
-{   
+public class SFXManager : MonoBehaviour
+{
+    private SFXManager() { }
 
-    private BMGMananger() { }
-
-    private static BMGMananger instance = null;
-    public static BMGMananger Instance
+    private static SFXManager instance = null;
+    public static SFXManager Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<BMGMananger>();
+                instance = FindObjectOfType<SFXManager>();
                 DontDestroyOnLoad(instance.transform.root);
             }
             return instance;
@@ -28,20 +29,17 @@ public class BMGMananger : MonoBehaviour
         private set { instance = value; }
     }
 
-    [SerializeField] List<AudioClip> musicTracks;
+    [SerializeField] List<AudioClip> sfxTracks;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioMixer mixer;
-    public void PlayTrack(TrackID id)
+    public void PlaySFX(SFXID id)
     {
-        audioSource.clip = musicTracks[(int)id];
-        audioSource.Play();
-
+        audioSource.PlayOneShot(sfxTracks[(int)id]);
     }
-
     void DestoryAllClones()
     {
-        BMGMananger[] clones = FindObjectsOfType<BMGMananger>();
-        foreach (BMGMananger clone in clones)
+        SFXManager[] clones = FindObjectsOfType<SFXManager>();
+        foreach (SFXManager clone in clones)
         {
             if (clone != Instance)
             {
@@ -53,7 +51,6 @@ public class BMGMananger : MonoBehaviour
     void Start()
     {
         DestoryAllClones();
-        Instance.PlayTrack(TrackID.StartMenu);
     }
 
     // Update is called once per frame
@@ -65,4 +62,5 @@ public class BMGMananger : MonoBehaviour
     {
         mixer.SetFloat("VolumeMusic", volumeDB);
     }
+
 }

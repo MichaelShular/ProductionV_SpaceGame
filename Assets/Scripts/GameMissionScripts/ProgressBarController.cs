@@ -12,7 +12,7 @@ public class ProgressBarController : MonoBehaviour
     private bool[] hasGotten;
     [SerializeField] private int costForUpgrade;
     [SerializeField] public string upgradeName;
-
+    private SFXManager sfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,10 @@ public class ProgressBarController : MonoBehaviour
         //PlayerPrefs.SetInt(upgradeName, 0);
        
         loadBarBits();
-
+        if (GameObject.Find("SFXManager") != null)
+        {
+            sfx = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        }
     }
 
     // Update is called once per frame
@@ -51,6 +54,7 @@ public class ProgressBarController : MonoBehaviour
         {
             if (!hasGotten[i])
             {
+                sfx.PlaySFX(SFXID.UIClick);
                 barBits[i].GetComponent<Image>().sprite = greenBarBit;
                 hasGotten[i] = true;
                 GameObject.Find("EventSystem").GetComponent<ScrapController>().changeScrapTotal(-costForUpgrade);
