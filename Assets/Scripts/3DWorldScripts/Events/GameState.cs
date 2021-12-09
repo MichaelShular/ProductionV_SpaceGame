@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.UI;
 public class GameState : MonoBehaviour
 {
     [SerializeField] private Canvas stateCanvas;
@@ -12,6 +13,7 @@ public class GameState : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scrapCollected;
     [SerializeField] private int amountOfEnemiesToDefeat;
     private int amountOfEnemiesDefeated;
+    [SerializeField] private Image redFilter;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class GameState : MonoBehaviour
     private void openGameStateCanvas(string typeOfState)
     {
         Time.timeScale = 0;
+        redFilter.color = new Vector4(1.0f, 0.0f, 0.0f, 0.0f);
         stateCanvas.enabled = true;
         stateText.text = typeOfState;
         scrapCollected.text = "Amount of scrap collected: " + GameObject.Find("Player").GetComponent<PlayerInventory>().getAmountOfScarp().ToString();

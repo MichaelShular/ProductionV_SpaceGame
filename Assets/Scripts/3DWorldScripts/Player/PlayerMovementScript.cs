@@ -18,8 +18,9 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI speedUI;
     private float speedForUI;
     private float maxSpeed;
-    public float boxwidth;
-    public float boxheight;
+    private float boxwidth;
+    private float boxheight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +76,11 @@ public class PlayerMovementScript : MonoBehaviour
         }
 
         amount = new Vector3(maxAmountOfYRotation, maxAmountOfXRotation, 0);
-        transform.Rotate(amount);
+        if(Time.timeScale != 0)
+        {
+            transform.Rotate(amount);
+        }
+        
         //transform.Rotate(Input.GetAxisRaw("Mouse Y") * turnSpeed, Input.GetAxisRaw("Mouse X") * turnSpeed, Input.GetAxisRaw("Depth") * turnSpeed);
         
         speed += Input.GetAxisRaw("Mouse ScrollWheel") * changeSpeedAmount;

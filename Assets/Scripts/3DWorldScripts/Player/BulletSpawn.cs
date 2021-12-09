@@ -35,7 +35,7 @@ public class BulletSpawn : MonoBehaviour
         //    canFire = true;
         //}
 
-        if (canFire && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+        if ( Time.timeScale != 0 && canFire && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
             gunsSilderUI.value = reloadSpeed;
 

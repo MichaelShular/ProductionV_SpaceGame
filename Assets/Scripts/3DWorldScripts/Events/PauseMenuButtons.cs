@@ -8,6 +8,7 @@ public class PauseMenuButtons : MonoBehaviour
 {
     [SerializeField] Canvas pauseMenuToggle;
     [SerializeField] private TextMeshProUGUI currentMission;
+    [SerializeField] private Image redFilter;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +18,9 @@ public class PauseMenuButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && Time.timeScale != 0)
         {
+            redFilter.color = new Vector4(1.0f, 0.0f, 0.0f, 0.0f);
             currentMission.text = "Mission: " + GetComponent<GameState>().getEneimesDefeated().ToString() + " / " + GetComponent<GameState>().getMissionAmount().ToString();
             Time.timeScale = 0;
             pauseMenuToggle.enabled = true;

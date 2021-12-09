@@ -1081,6 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuToggle: {fileID: 494686466}
   currentMission: {fileID: 1268665630}
+  redFilter: {fileID: 214607883}
 --- !u!114 &496938684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1133,6 +1134,7 @@ MonoBehaviour:
   stateText: {fileID: 1384900998}
   scrapCollected: {fileID: 553943705}
   amountOfEnemiesToDefeat: 3
+  redFilter: {fileID: 214607883}
 --- !u!1 &509197737
 GameObject:
   m_ObjectHideFlags: 0
