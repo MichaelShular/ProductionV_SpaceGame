@@ -12,6 +12,8 @@ public class EnemyShipHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = PlayerPrefs.GetInt("EnemyHeath");
+        Debug.Log("health " + health);
         enemyPool = GameObject.Find("EnemySpawner").GetComponent<EnemyPool>();
         health = 30;
         playerDamage = 10 + (5 * PlayerPrefs.GetInt("GunDamage"));

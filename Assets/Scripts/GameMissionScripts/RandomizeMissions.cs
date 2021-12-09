@@ -62,6 +62,7 @@ public class RandomizeMissions : MonoBehaviour
                 numberOfEnemies = Mathf.RoundToInt(Random.Range(60, 110) / 10);
                 numberOfToDefeat = Mathf.RoundToInt(Random.Range(50, numberOfEnemies * 10) / 10);
                 amountOfHealth = Random.Range(50, 90);
+                
                 textDifficulty.text = "Elite";
                 textDifficulty.color = Color.red;
                 textMissionGoal.text = "Defeat: " + numberOfToDefeat + " spacecrafts";
@@ -69,7 +70,15 @@ public class RandomizeMissions : MonoBehaviour
             default:
                 break;
         }
+        set3DWorldMissionSettings(numberOfEnemies, numberOfToDefeat, amountOfHealth);
     }
 
+    private void set3DWorldMissionSettings(int amountOfEnemies, int amountToDefeat, int enemyHeath)
+    {
+        PlayerPrefs.SetInt("AmountOfEnemies", amountOfEnemies);
+        PlayerPrefs.SetInt("AmountToDefeat", amountToDefeat);
+        PlayerPrefs.SetInt("EnemyHeath", enemyHeath);
+
+    }
 
 }

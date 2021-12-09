@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        amountOfEnemies = PlayerPrefs.GetInt("AmountOfEnemies");
+        Debug.Log("amount " + amountOfEnemies);
         for (int i = 0; i < amountOfEnemies ; i++)
         {
             GameObject tempEnemy = enemyPool.getEnemyFromPool();

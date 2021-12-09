@@ -14,7 +14,7 @@ public class EnemyPool : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        amountOfEnemies = this.GetComponent<EnemySpawner>().getNumberOfEnemiesInLevel();
+        amountOfEnemies = PlayerPrefs.GetInt("AmountOfEnemies");
         currentIDToUse = 0;
         buildEnemyPool();
     }

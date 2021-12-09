@@ -16,7 +16,8 @@ public class GameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        amountOfEnemiesToDefeat = PlayerPrefs.GetInt("AmountToDefeat");
+        Debug.Log("Defeat " + amountOfEnemiesToDefeat);
         player = GameObject.Find("Player").GetComponent<PlayerCollider>();
         PlayerPrefs.SetInt("ScrapCollect", 0);
     }
