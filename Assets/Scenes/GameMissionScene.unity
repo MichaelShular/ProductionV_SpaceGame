@@ -989,7 +989,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 30
   m_Viewport: {fileID: 1231026248}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 2086902032}
@@ -3706,7 +3706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 220, y: -0}
+  m_AnchoredPosition: {x: 220, y: 0}
   m_SizeDelta: {x: 0, y: 150.06604}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1594820554
@@ -3763,6 +3763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mission: {fileID: 7346268284936401048, guid: eb002490a0d8f7e46a0c46c8409a790b, type: 3}
   amountOfMissions: 6
+  events: {fileID: 536371781}
 --- !u!1 &1661971149
 GameObject:
   m_ObjectHideFlags: 0
