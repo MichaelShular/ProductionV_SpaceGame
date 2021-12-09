@@ -18,7 +18,8 @@ public class PlayerMovementScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI speedUI;
     private float speedForUI;
     private float maxSpeed;
-
+    public float boxwidth;
+    public float boxheight;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,18 +30,20 @@ public class PlayerMovementScript : MonoBehaviour
         sideDashForceAmount = 45;
         maxSpeed = 0.1f + 0.05f * PlayerPrefs.GetInt("Speed");
         Cursor.lockState = CursorLockMode.Confined;
+        boxwidth = PlayerPrefs.GetInt("BoxWidth");
+        boxheight = PlayerPrefs.GetInt("BoxHeight");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if( Input.mousePosition.y > (Screen.height/2) + 100 )
+        if( Input.mousePosition.y > (Screen.height/2) + boxheight )
         {
             //amount += new Vector3(turnSpeed * Time.deltaTime, 0,0);
             maxAmountOfYRotation -= 0.1f * Time.deltaTime;
             maxAmountOfYRotation = Mathf.Clamp(maxAmountOfYRotation, -0.1f, 0.1f);
         }
-        else if(Input.mousePosition.y < (Screen.height / 2) - 100)
+        else if(Input.mousePosition.y < (Screen.height / 2) - boxheight)
         {
             //amount -= new Vector3(turnSpeed * Time.deltaTime, 0, 0);
         
@@ -56,12 +59,12 @@ public class PlayerMovementScript : MonoBehaviour
 
         }
 
-        if (Input.mousePosition.x > (Screen.width / 2) + 100)
+        if (Input.mousePosition.x > (Screen.width / 2) + boxwidth)
         {
             maxAmountOfXRotation += 0.1f * Time.deltaTime;
             maxAmountOfXRotation = Mathf.Clamp(maxAmountOfXRotation, -0.5f, 0.5f);
         }
-        else if (Input.mousePosition.x < (Screen.width / 2) - 100)
+        else if (Input.mousePosition.x < (Screen.width / 2) - boxwidth)
         {
             maxAmountOfXRotation -= 0.1f * Time.deltaTime;
             maxAmountOfXRotation = Mathf.Clamp(maxAmountOfXRotation, -0.5f, 0.5f);

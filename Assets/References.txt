@@ -53,3 +53,6 @@ https://learn.unity.com/tutorial/creating-a-global-post-processing-volume-2019-3
 
 Help find some things i forgot about scrolling UI
 https://www.youtube.com/watch?v=ZI6DwJtjlBA&ab_channel=c00pala
+
+global volume
+https://answers.unity.com/questions/16603/is-there-a-global-volume-setting.html
