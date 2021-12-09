@@ -8,7 +8,10 @@ public class ScrollingBackGround : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (GameObject.Find("BMGManager") != null)
+        {
+            GameObject.Find("BMGManager").GetComponent<BMGMananger>().PlayTrack(TrackID.MissionMenu);
+        }
     }
 
     // Update is called once per frame

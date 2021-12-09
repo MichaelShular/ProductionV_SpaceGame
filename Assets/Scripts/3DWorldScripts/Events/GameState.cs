@@ -22,6 +22,10 @@ public class GameState : MonoBehaviour
         Debug.Log("Defeat " + amountOfEnemiesToDefeat);
         player = GameObject.Find("Player").GetComponent<PlayerCollider>();
         PlayerPrefs.SetInt("ScrapCollect", 0);
+        if (GameObject.Find("BMGManager") != null)
+        {
+            GameObject.Find("BMGManager").GetComponent<BMGMananger>().PlayTrack(TrackID.BattleMusic);
+        }
     }
 
     // Update is called once per frame
